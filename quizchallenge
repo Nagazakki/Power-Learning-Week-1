@@ -1,0 +1,56 @@
+# define questions
+questions = [
+    {"Question": "What is the capital of Kenya?", 
+     "Choices": ["A. Dodoma", "B. Nairobi","C. Algiers", "D. Mogadishu"],
+     "answer": "B"},
+
+    {"Question": "What is the capital of Eritrea?", 
+     "Choices": ["A. Bujumbura", "B. Addis Ababa", "C. Asmara", "D. Ouagadougou"],
+     "answer": "C"},  
+
+    {"Question": "What is the capital of Mali?",
+      "Choices": ["A. Harare", "B. Gaborone", "C. Kampala", "D. Bamako"],
+      "answer" : "D"},
+     
+    {"Question": "What is the capital of Mauritius?",
+      "Choices": ["A. Port Louis", "B. Victoria", "C. Monrovia", "D. Praia"],
+      "answer" : "A" },
+
+    {"Question": "What is the capital of Equatorial Guinea?",
+       "Choices" : ["A. Nouakchott", "B. Malabo", "C. Moroni", "D. Conakry"],
+       "answer" : "B"} 
+]
+
+def run_quiz(questions):
+    score = 0
+
+
+    for q in questions:
+        print(q["Question"])
+
+        for Choice in q["Choices"]:
+            print(Choice)
+
+        guess = input("Enter (A, B, C, D): ").upper()
+
+        if guess == q["answer"]: 
+            score += 1
+            print("CORRECT!")
+        else:
+            print(f"INCORRECT! The correct answer is {q['answer']}.")
+
+    print("_______________")
+    print("    RESULTS    ")
+    print("_______________")
+    print(f"Your final score is: {score}/{len(questions)}")
+      
+
+if __name__  == "__main__":
+    while True:
+        run_quiz(questions)
+        retake = input("Would you like to retake the quiz? (yes/no):").strip().lower()
+        if retake != 'yes':
+            print("Thank you for the attempt! Goodbye!")
+        break
+
+     
